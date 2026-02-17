@@ -2,6 +2,13 @@
 
 A high-performance **Full-Stack AI** application that integrates **Computer Vision** with a web backend. This system enables secure, touchless control of Windows system volume using hand gestures, authenticated by real-time facial recognition.
 
+## 🖼️ User Interface
+Below are screenshots of the application interface and the AI recognition system in action:
+| ![Interface 1](1.png) | ![Interface 2](2.png) |
+
+|:---:|:---:|
+| ![Interface 3](3.png) | ![Interface 4](4.png) |
+
 ## 🚀 Key Technical Features
 * **Multi-Modal AI Logic**: Combines `MediaPipe` for hand landmark tracking and `face_recognition` for identity verification.
 * **Identity-Based Control**: Implemented a security layer where the system only responds to gestures if a pre-registered "Authorized User" is detected in the frame.
@@ -33,4 +40,5 @@ A high-performance **Full-Stack AI** application that integrates **Computer Visi
 
 ---
 **Developed by Mohammed Alrasheed And Faris Almutiri**
+
 *Bachelor of Computer Science - Al-Majma'ah University*
