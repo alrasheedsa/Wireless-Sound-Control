@@ -1,0 +1,688 @@
+/* التنسيقات العامة (Global Styles) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* استخدام box-sizing لضمان احتساب الحواف والحشو ضمن الأبعاد */
+    font-family: Arial, sans-serif;
+    /* تعيين الخط الافتراضي */
+}
+
+/* تنسيق الجسم الرئيسي للصفحة (Body) */
+body {
+    background-color: #fff;
+    /* لون الخلفية الأبيض */
+    min-height: 100vh;
+    /* الحد الأدنى للارتفاع يساوي ارتفاع النافذة */
+}
+
+/* تنسيق الصفحات (Page) */
+.page {
+    display: none;
+    /* إخفاء جميع الصفحات افتراضيًا */
+    flex-direction: column;
+    /* ترتيب العناصر عموديًا باستخدام Flexbox */
+    min-height: 100vh;
+    /* ضمان امتداد الصفحة لكامل الارتفاع */
+}
+
+/* تنسيق الصفحة النشطة (Active Page) */
+.page.active {
+    display: flex;
+    /* إظهار الصفحة النشطة باستخدام Flexbox */
+}
+
+/* تنسيق رأس الصفحة (Header) */
+header {
+    display: flex;
+    /* استخدام Flexbox لترتيب العناصر */
+    justify-content: space-between;
+    /* توزيع العناصر بمسافات متساوية */
+    align-items: center;
+    /* محاذاة العناصر عموديًا */
+    padding: 16px 24px;
+    /* إضافة حشو داخلي */
+    background-color: #f5f5f5;
+    /* لون خلفية فاتح */
+    border-bottom: 2px solid #ccc;
+    /* إضافة حدود سفلية */
+}
+
+/* تنسيق الشعار (Logo) */
+.logo {
+    font-size: 1.2em;
+    /* حجم الخط */
+    font-weight: bold;
+    /* جعل النص غامقًا */
+}
+
+/* تنسيق الأزرار (Button Styles) */
+button {
+    background-color: #6b3fa0;
+    /* لون خلفية بنفسجي */
+    color: #fff;
+    /* لون النص أبيض */
+    border: none;
+    /* إزالة الحدود */
+    padding: 10px 20px;
+    /* حشو داخلي */
+    border-radius: 20px;
+    /* زوايا مستديرة */
+    cursor: pointer;
+    /* تحويل المؤشر إلى يد عند التمرير */
+    font-size: 1em;
+    /* حجم الخط */
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    /* إضافة ظل خفيف */
+}
+
+/* تنسيق الأزرار عند التمرير (Hover) */
+button:hover {
+    background-color: #5a347f;
+    /* تغيير لون الخلفية إلى بنفسجي داكن */
+}
+
+/* تنسيق أزرار الحساب والتعليمات */
+.account-btn, .instructions-btn {
+    background-color: #552669;
+    /* لون خلفية بنفسجي داكن */
+}
+
+/* تنسيق زر البدء (Start Button) */
+.start-btn {
+    background-color: #552669;
+    /* لون خلفية بنفسجي داكن */
+    padding: 12px 20px;
+    /* حشو داخلي أكبر */
+    margin-top: 20px;
+    /* هامش علوي */
+}
+
+/* تنسيق زر الإنهاء (End Button) */
+.end-btn {
+    background-color: #84588e;
+    /* لون خلفية بنفسجي فاتح */
+    padding: 0.5rem 1.5rem;
+    /* حشو داخلي */
+    font-size: 1.2rem;
+    /* حجم الخط */
+}
+
+/* تنسيق الصفحة الرئيسية (Home Page) */
+#home-page main {
+    padding: 40px 20px;
+    /* حشو داخلي */
+    text-align: center;
+    /* محاذاة النصوص في المنتصف */
+}
+
+/* تنسيق العنوان الرئيسي في الصفحة الرئيسية */
+#home-page h1 {
+    font-size: 2em;
+    /* حجم الخط */
+    margin-bottom: 10px;
+    /* هامش سفلي */
+}
+
+/* تنسيق النصوص الوصفية */
+#home-page p {
+    font-size: 1.1em;
+    /* حجم الخط */
+    margin-bottom: 30px;
+    /* هامش سفلي */
+}
+
+/* تنسيق حاوية الصور */
+#home-page .images {
+    display: flex;
+    /* استخدام Flexbox */
+    justify-content: center;
+    /* محاذاة الصور في المنتصف */
+    gap: 20px;
+    /* مسافة بين الصور */
+    margin-bottom: 30px;
+}
+
+/* تنسيق الصور */
+#home-page .images img {
+    width: 150px;
+    height: 150px;
+    /* أبعاد الصورة */
+    border-radius: 50%;
+    /* جعل الصور دائرية */
+    object-fit: cover;
+    /* ضمان ملء الصورة للحاوية */
+}
+
+/* تنسيق حاوية الأزرار */
+#home-page .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* توزيع الأزرار بمسافات متساوية */
+}
+
+/* تنسيق صفحات النماذج (Form Pages) */
+#signup-page main,
+#signin-page main,
+#forgot-password-page main {
+    padding: 20px;
+    text-align: center;
+    /* محاذاة النصوص في المنتصف */
+}
+
+/* تنسيق العناوين في صفحات النماذج */
+#signup-page h2,
+#signin-page h2,
+#forgot-password-page h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #6b3fa0;
+    /* لون العنوان بنفسجي */
+}
+
+/* تنسيق النماذج (Forms) */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    /* توسيط النموذج */
+    text-align: left;
+    border: 1px solid #ccc;
+    /* إضافة حدود */
+    padding: 20px;
+    border-radius: 10px;
+    /* زوايا مستديرة */
+}
+
+/* تنسيق التسميات (Labels) */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1em;
+}
+
+/* تنسيق الحقول النصية (Inputs) */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    /* زوايا مستديرة */
+}
+
+/* تنسيق حاوية رفع الملفات */
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* تنسيق معاينة الصورة */
+.image-preview {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+/* تنسيق الصور داخل المعاينة */
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تنسيق أزرار النموذج */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* تنسيق الروابط (Links) */
+a {
+    color: #6b3fa0;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* تنسيق الروابط عند التمرير */
+a:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق صفحة التعليمات (Instruction Page) */
+#page1 main {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    flex-grow: 1;
+    /* ملء المساحة المتاحة */
+}
+
+/* تنسيق حاوية التعليمات */
+.instruction-container {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    padding: 30px;
+    gap: 30px;
+    max-width: 960px;
+    width: 100%;
+}
+
+/* تنسيق منطقة النصوص */
+.text-area {
+    background-color: #f4f4f4;
+    color: #000;
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1;
+}
+
+/* تنسيق النصوص داخل منطقة النصوص */
+.text-area p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* تنسيق حاوية الصور البصرية */
+.visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/* تنسيق قسم الإيماءات وقسم الوجه */
+.hand-section, .face-section {
+    text-align: center;
+}
+
+/* تنسيق عنوان قسم الإيماءات */
+.hand-section .title {
+    background-color: #ddd;
+    color: #000;
+    padding: 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* تنسيق الصور في قسم الإيماءات والوجه */
+.hand-section img,
+.face-section img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 10px;
+    background-color: white;
+    object-fit: cover;
+}
+
+/* تنسيق صفحة النموذج (Form Page) */
+#page2 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    /* ارتفاع الصفحة 70% من النافذة */
+}
+
+/* تنسيق حاوية النموذج */
+.form-container {
+    background-color: #532866;
+    /* لون خلفية بنفسجي داكن */
+    padding: 2rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 250px;
+}
+
+/* تنسيق العنوان في حاوية النموذج */
+.form-container h1 {
+    color: black;
+    font-size: 1.5rem;
+}
+
+/* تنسيق الحقول النصية في النموذج */
+.form-container input {
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+/* تنسيق صفحة الكاميرا (Camera Page) */
+#page3 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+/* تنسيق حاوية الكاميرا */
+.camera-container {
+    background-color: #532866;
+    padding: 2rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* تنسيق العنوان في حاوية الكاميرا */
+.camera-container h1 {
+    color: black;
+    font-size: 1.5rem;
+}
+
+/* تنسيق إطار الكاميرا */
+.camera-frame {
+    background-color: white;
+    width: 90%;
+    height: 300px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* تنسيق صورة الكاميرا */
+.camera-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* ضمان عرض الصورة دون قص */
+}
+
+/* تنسيق مؤشر الإيماءات (Gesture Indicator) */
+.gesture-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* خلفية شبه شفافة */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: none;
+    /* إخفاء افتراضيًا */
+    font-size: 0.9em;
+    text-align: center;
+    z-index: 10;
+    /* ضمان ظهوره فوق الفيديو */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* إضافة ظل */
+}
+
+/* تنسيق عنصر التحكم في الصوت (Volume Control) */
+.volume-control {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+/* تنسيق شريط الصوت */
+.volume-bar {
+    flex: 1;
+    height: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+/* تنسيق مستوى الصوت داخل الشريط */
+.volume-level {
+    height: 100%;
+    width: 50%;
+    background-color: #4CAF50;
+    /* لون أخضر */
+    transition: width 0.3s ease;
+    /* تأثير انتقال سلس */
+}
+
+/* تنسيق النص الخاص بنسبة الصوت */
+#volume-percentage {
+    font-size: 0.9em;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* تنسيق تذييل الصفحة (Footer) */
+footer {
+    background-color: #6b3fa0;
+    height: 50px;
+    margin-top: auto;
+    /* دفع التذييل إلى الأسفل */
+}
+
+/* تنسيق الشريط السفلي (Bottom Bar) */
+.bottom-bar {
+    height: 100px;
+}
+
+/* تنسيق لوحة التحكم الإدارية (Admin Dashboard) */
+.container {
+    display: flex;
+    /* استخدام Flexbox لتقسيم الواجهة */
+}
+
+/* تنسيق الشريط الجانبي (Sidebar) */
+.sidebar {
+    width: 200px;
+    background-color: #4b2668;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* تنسيق المحتوى الرئيسي */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* تنسيق رأس لوحة التحكم */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* تنسيق زر تسجيل الخروج */
+.logout-button {
+    background-color: #804098;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* تنسيق ملخص البيانات (Summary) */
+.summary {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* تنسيق البطاقات في الملخص */
+.card {
+    background: linear-gradient(to bottom, #b666d2, #9c4ccc);
+    /* تدرج لوني */
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق الأيقونات في البطاقات */
+.card .icon {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* تنسيق أقسام المستخدمين والمحاضرات */
+.user-section,
+.lecture-section {
+    margin-bottom: 40px;
+}
+
+/* تنسيق العناوين */
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* تنسيق الجداول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+/* تنسيق خلايا الجدول */
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+/* تنسيق رأس الجدول */
+th {
+    background-color: #c29edb;
+    color: #333;
+}
+
+/* تنسيق زر الإضافة */
+.add-button {
+    background-color: #4b2668;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* تنسيق صفحة الحساب (Account Page) */
+.header-buttons .btn {
+    margin-left: 10px;
+    background-color: #5a2a73;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+/* تنسيق نموذج الحساب */
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* تقسيم النموذج إلى عمودين */
+    gap: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* تنسيق التسميات في نموذج الحساب */
+.form label {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* تنسيق الحقول النصية في نموذج الحساب */
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="tel"] {
+    padding: 0.6rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #5a2a73;
+    color: white;
+}
+
+/* تنسيق حقل رفع الملفات */
+.form input[type="file"] {
+    grid-column: span 2;
+    /* امتداد الحقل عبر العمودين */
+    justify-self: center;
+}
+
+/* تنسيق الرسائل (Messages) */
+.message {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: none;
+    /* إخفاء افتراضيًا */
+}
+
+/* تنسيقات التصميم المتجاوب (Responsive Design) */
+@media (max-width: 768px) {
+    /* تعديل حاوية التعليمات لتصبح عمودية */
+    .instruction-container {
+        flex-direction: column;
+    }
+    
+    /* تعديل نموذج الحساب إلى عمود واحد */
+    .form {
+        grid-template-columns: 1fr;
+    }
+    
+    /* محاذاة التسميات إلى اليسار */
+    .form label {
+        text-align: left;
+    }
+    
+    /* تعديل الملخص إلى ترتيب عمودي */
+    .summary {
+        flex-direction: column;
+    }
+    
+    /* تعديل الحاوية الرئيسية للوحة التحكم */
+    .container {
+        flex-direction: column;
+    }
+    
+    /* تعديل الشريط الجانبي ليأخذ العرض الكامل */
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+}

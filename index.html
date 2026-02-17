@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless Sound Control</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <header>
+            <div class="logo">👁️ Wireless Sound Control</div>
+        </header>
+        <main>
+            <h1>Welcome to Wireless Sound Control</h1>
+            <p>Control lecture volume with gestures and use face recognition</p>
+            <div class="images">
+                <img src="face_recognition.png" alt="Face Recognition" onerror="this.src='https://via.placeholder.com/150'">
+                <img src="face_detection.png" alt="Gesture Recognition" onerror="this.src='https://via.placeholder.com/150'">
+            </div>
+            <div class="buttons">
+                <button onclick="showPage('signin-page')">Sign in</button>
+                <button onclick="showPage('signup-page')">Sign up</button>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+
+    <!-- Signup Page -->
+<div id="signup-page" class="page">
+    <header>
+        <div class="logo">👁️ Wireless Sound Control</div>
+        <button onclick="showPage('signin-page')">Sign in</button>
+    </header>
+    <main>
+        <h2>Sign up Wireless Sound Control</h2>
+        <form id="signup-form">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" maxlength="11" pattern="[A-Za-z0-9]+" title="Username must contain only English letters and numbers" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" title="Email must contain only English characters" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" maxlength="11" pattern="[A-Za-z0-9!@#$%^&*]+" title="Password must contain only English letters, numbers, and allowed special characters (!@#$%^&*)" required>
+
+            <label>Phone Number</label>
+            <input type="tel" name="phoneNumber" placeholder="Phone Number" maxlength="10" pattern="[0-9]+" title="Phone number must contain only numbers" required>
+
+            <label>Upload Face Image</label>
+            <div class="file-upload">
+                <input type="file" name="faceImage" id="face-image" accept="image/*" required>
+                <div class="image-preview" id="image-preview"></div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit">Sign up</button>
+                <a href="#" onclick="showPage('forgot-password-page')">Forgot Password?</a>
+            </div>
+        </form>
+    </main>
+    <footer></footer>
+</div>
+    <!-- Signin Page -->
+    <div id="signin-page" class="page">
+        <header>
+            <div class="logo">👁️ Wireless Sound Control</div>
+            <button onclick="showPage('signup-page')">Sign up</button>
+        </header>
+        <main>
+            <h2>Login to Your Account</h2>
+            <form id="signin-form">
+                <label>Username or email address</label>
+                <input type="text" name="email" placeholder="Username or email address" required>
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign in</button>
+                <a href="#" onclick="showPage('forgot-password-page')">Forgot Password?</a>
+            </form>
+        </main>
+        <footer></footer>
+    </div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgot-password-page" class="page">
+        <header>
+            <div class="logo">👁️ Wireless Sound Control</div>
+        </header>
+        <main>
+            <h2>Forgot Password</h2>
+            <form id="forgot-password-form">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Reset Password</button>
+                <a href="#" onclick="showPage('signin-page')">Back to Sign In</a>
+            </form>
+            <div id="reset-message" class="message"></div>
+        </main>
+        <footer></footer>
+    </div>
+
+    <!-- Instruction Page -->
+    <div id="page1" class="page">
+        <header>
+            <div class="logo">👁 Wireless Sound Control</div>
+            <button class="account-btn" onclick="showPage('account-page')">Account</button>
+        </header>
+
+        <main>
+            <div class="instruction-container">
+                <div class="text-area">
+                    <p>
+                        Ensure the front camera is activated and accessible.<br>
+                        Position yourself in front of the camera ensuring good lighting.<br>
+                        Make your hand and face visible in the camera view.<br>
+                        Wait for the system to process and detect the features.
+                    </p>
+                    <button class="start-btn" onclick="showPage('page2')">Start Collaborator</button>
+                </div>
+
+                <div class="visuals">
+                    <div class="hand-section">
+                        <img src="hand_detectiongif.gif" alt="Hand Gesture" onerror="this.src='https://via.placeholder.com/180'">
+                    </div>
+                    <div class="face-section">
+                        <img src="user_authentication.jpg" alt="Face Detection" onerror="this.src='https://via.placeholder.com/180'">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bottom-bar"></footer>
+    </div>
+
+    <!-- Form Page -->
+    <div id="page2" class="page">
+        <header>
+            <div class="logo">👁 Wireless Sound Control</div>
+            <button class="instructions-btn" onclick="showPage('page1')">Instructions</button>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <h1>Lecture</h1>
+                <form id="lecture-form">
+                    <input type="text" name="userName" placeholder="Username" required>
+                    <input type="text" name="topic" placeholder="Topic" required>
+                    <input type="date" name="date" required>
+                    <button type="submit" class="start-btn">START</button>
+                </form>
+            </div>
+        </main>
+
+        <footer></footer>
+    </div>
+ 
+    <!-- Camera Page -->
+    <div id="page3" class="page">
+        <header>
+            <div class="logo">👁 Wireless Sound Control</div>
+            <button class="instructions-btn" onclick="showPage('page1')">Instructions</button>
+        </header>
+
+        <main>
+            <div class="camera-container">
+                <h1>Camera</h1>
+                <div class="camera-frame">
+                    <img id="video-feed" src="/video_feed" alt="Video Feed">
+                    <div id="gesture-indicator" class="gesture-indicator"></div>
+                    <div class="volume-control">
+                        <span>Volume:</span>
+                        <div class="volume-bar">
+                            <div id="volume-level" class="volume-level"></div>
+                        </div>
+                        <span id="volume-percentage">50%</span>
+                    </div>
+                </div>
+                <button class="end-btn" onclick="endSession()">END</button>
+            </div>
+        </main>
+
+        <footer></footer>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="page">
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Dashboard</h2>
+            </aside>
+
+            <main class="main-content">
+                <header class="header">
+                    <h1>Admin Dashboard</h1>
+                    <button class="logout-button" onclick="logout()">Logout</button>
+                </header>
+
+                <section class="summary">
+                    <div class="card">
+                        <span class="icon">👤</span>
+                        <p>Total Users</p>
+                        <h2 id="total-users">0</h2>
+                    </div>
+                    <div class="card">
+                        <span class="icon">📚</span>
+                        <p>Total Lectures</p>
+                        <h2 id="total-lectures">0</h2>
+                    </div>
+                </section>
+
+                <section class="user-section">
+                    <h2>Users</h2>
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+       <!-- User rows will be added dynamically -->
+                        </tbody>
+                    </table>
+                    <button class="add-button" onclick="showAddUserModal()">Add User</button>
+                </section>
+
+                <section class="lecture-section">
+                    <h2>Lectures</h2>
+                    <table id="lectures-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Topic</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Lecture rows will be added dynamically -->
+                        </tbody>
+                    </table>
+                    <button class="add-button" onclick="showAddLectureModal()">Add Lectures</button>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Account Page -->
+    <div id="account-page" class="page">
+        <header>
+            <div class="logo">
+                👁️ Wireless Sound Control
+            </div>
+            <div class="header-buttons">
+                <button class="btn" onclick="showPage('page1')">Instructions</button>
+                <button class="btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+            
+        <main>
+            <h1>Account</h1>
+            <form id="account-form" class="form">
+                <label>Username</label>
+                <input type="text" name="username" maxlength="11" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Password</label>
+                <input type="password" name="password" maxlength="11" placeholder="Leave blank to keep current">
+
+                <label>Phone Number</label>
+                <input type="tel" name="phoneNumber" maxlength="10" placeholder="Enter your phone number">
+
+                <label>Upload Face Image</label>
+                <div class="file-upload">
+                    <input type="file" name="image" id="account-image" accept="image/*">
+                    <div class="image-preview" id="account-image-preview"></div>
+                </div>
+
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </main>
+
+        <footer></footer>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="add-user-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+        <div style="background:#fff; width:400px; margin:50px auto; padding:20px; border-radius:10px;">
+            <h2>Add New User</h2>
+            <form id="add-user-form">
+                <label>Username</label>
+                <input type="text" name="username" required>
+                <label>Email</label>
+                <input type="email" name="email" required>
+                <label>Phone Number</label>
+                <input type="tel" name="phoneNumber">
+                <label>Password</label>
+                <input type="password" name="password" required>
+                <div style="margin-top:10px;">
+                    <button type="submit">Add User</button>
+                    <button type="button" onclick="closeAddUserModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="edit-user-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+        <div style="background:#fff; width:400px; margin:50px auto; padding:20px; border-radius:10px;">
+            <h2>Edit User</h2>
+            <form id="edit-user-form">
+                <input type="hidden" name="id">
+                <label>Username</label>
+                <input type="text" name="username" required>
+                <label>Email</label>
+                <input type="email" name="email" required>
+                <label>Phone Number</label>
+                <input type="tel" name="phoneNumber">
+                <div style="margin-top:10px;">
+                    <button type="submit">Save Changes</button>
+                    <button type="button" onclick="closeEditUserModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Lecture Modal -->
+    <div id="add-lecture-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+        <div style="background:#fff; width:400px; margin:50px auto; padding:20px; border-radius:10px;">
+            <h2>Add New Lecture</h2>
+            <form id="add-lecture-form">
+                <label>Username</label>
+                <input type="text" name="name" required>
+                <label>Topic</label>
+                <input type="text" name="topic" required>
+                <label>Date</label>
+                <input type="date" name="date" required>
+                <div style="margin-top:10px;">
+                    <button type="submit">Add Lecture</button>
+                    <button type="button" onclick="closeAddLectureModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Lecture Modal -->
+    <div id="edit-lecture-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+        <div style="background:#fff; width:400px; margin:50px auto; padding:20px; border-radius:10px;">
+            <h2>Edit Lecture</h2>
+            <form id="edit-lecture-form">
+                <input type="hidden" name="id">
+                <label>Username</label>
+                <input type="text" name="name" required>
+                <label>Topic</label>
+                <input type="text" name="topic" required>
+                <label>Date</label>
+                <input type="date" name="date" required>
+                <div style="margin-top:10px;">
+                    <button type="submit">Save Changes</button>
+                    <button type="button" onclick="closeEditLectureModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
